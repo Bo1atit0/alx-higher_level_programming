@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def uppercase(str):
     result = ""  # empty string to store uppercase characters
     for ch in str:
