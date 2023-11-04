@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-import sys
+    import sys
 
 lent = len(sys.argv) - 1
 if lent == 0:
