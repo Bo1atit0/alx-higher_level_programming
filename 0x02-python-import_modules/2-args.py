@@ -9,5 +9,5 @@ elif lent == 1:
     print("1: {}".format(sys.argv[1]))
 else:
     print("{} arguments:".format(lent))
-    for i in range(1, lent):
+    for i in range(1, lent+1):
         print("{}: {}".format(i, sys.argv[i]))
