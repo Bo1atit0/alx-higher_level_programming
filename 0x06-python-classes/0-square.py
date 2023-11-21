@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
-# an empty class
+"""an empty class that contains nothing"""
+
 class Square:
     pass
