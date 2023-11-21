@@ -2,7 +2,7 @@
 
 """an empty class that contains nothing:"""
 
-class Square:
-    pass
 
-"""this class does nothing yet."""
+class Square:
+    """this class can't do anything yet."""
+    pass
