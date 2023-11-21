@@ -1,10 +1,17 @@
 #!/usr/bin/python3
 
-"""a class that defines a square"""
+"""
+Creates a class that defines a square.
+Private instance attribute: size
+"""
 
 
 class Square:
-    """defines a class"""
+    """
+    defines a class with attribute size=0
+    checks if size is of type int and
+    if size < 0
+    """
     def __init__(self, size=0):
         try:
             if not isinstance(size, int):
