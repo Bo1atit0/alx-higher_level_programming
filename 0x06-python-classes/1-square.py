@@ -4,7 +4,6 @@
 
 
 class Square:
+    """defines a class with private attribute: size"""
     def __init__(self, size):
-        """contains a private instanve attribute size"""
-
         self.size = size
