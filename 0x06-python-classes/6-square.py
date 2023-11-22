@@ -1,13 +1,19 @@
 #!/usr/bin/python3
 
 """
-Create  a class Square that defines a square
-Private instance attribute: size:
+class Square that defines a square
+Private instance attribute: size
 property def size(self): to retrieve it
-property setter def size(self, value): to set it
-check for conditions before setting values
-Public instance method: def area(self): that returns the
-current square area
+property setter def size(self, value): to set it:
+
+Private instance attribute: position
+which takes a default (0, 0) tuple.
+property def position(self): to retrieve it
+property setter def position(self, value): to set it:
+
+And a Public instance method: def area(self):
+that returns the current square area
+Method my_print prints the square using "#".
 """
 
 
