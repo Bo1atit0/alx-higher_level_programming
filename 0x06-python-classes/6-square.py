@@ -1,20 +1,22 @@
 #!/usr/bin/python3
 
-
 """
-class Square that defines a square
-Private instance attribute: size
-property def size(self): to retrieve it
-property setter def size(self, value): to set it:
+Class Square:
+    This class defines a square with size,
+    position, and methods to calculate area and print the square.
 
-Private instance attribute: position
-which takes a default (0, 0) tuple.
-property def position(self): to retrieve it
-property setter def position(self, value): to set it:
+Attributes:
+    __size (int): The size of the square.
+    __position (tuple): The position of the square.
 
-And a Public instance method: def area(self):
-that returns the current square area
-Method my_print prints the square using "#".
+Methods:
+    __init__(self, size=0, position=(0, 0)): Initializes a new Square instance.
+    size(self): Getter method to retrieve the size.
+    size(self, value): Setter method to set the size.
+    position(self): Getter method to retrieve the position.
+    position(self, value): Setter method to set the position.
+    area(self): Calculates and returns the area of the square.
+    my_print(self): Prints the square using "#".
 """
 
 
@@ -26,24 +28,33 @@ class Square:
     """
 
     def __init__(self, size=0, position=(0, 0)):
+        """
+        Initializes a new Square instance.
+
+        Args:
+            size (int): The size of the square.
+            position (tuple): The position of the square.
+        """
         self.__size = size
         self.__position = position
 
     @property
     def size(self):
+        """Getter method to retrieve the size."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """method that sets the size
-        Args:
-            int: size
-        raises:
-            TypeError
-            ValueError
-
         """
+        Setter method to set the size.
 
+        Args:
+            value (int): The size of the square.
+
+        Raises:
+            TypeError: If `value` is not an integer.
+            ValueError: If `value` is less than 0.
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -52,28 +63,40 @@ class Square:
 
     @property
     def position(self):
+        """Getter method to retrieve the position."""
         return self.__position
 
     @position.setter
     def position(self, value):
-        """a method that sets the position of a square
-        Args:
-            value(tuple): 2 positive integers
-        Raises:
-            TypeError
-
         """
-        if (not isinstance(value, tuple)) or (len(value) != 2)
-        or any(num < 0 for num in value):
+        Setter method to set the position.
+
+        Args:
+            value (tuple): The position of the square.
+
+        Raises:
+            TypeError: If `value` is not a tuple of two positive integers.
+        """
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not all(isinstance(num, int) for num in value) or
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """
-        calculates area of a square
+        Calculates area of a square.
+
+        Returns:
+            int: The area of the square.
         """
         return self.__size ** 2
 
     def my_print(self):
+        """
+        Prints the square using '#'.
+        """
         if self.__size == 0:
             print()
         else:
