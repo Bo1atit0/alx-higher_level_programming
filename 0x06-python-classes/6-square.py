@@ -19,8 +19,11 @@ Method my_print prints the square using "#".
 
 class Square:
     """
-    Instantiation with optional size: def __init__(self, size=0)
+    Instantiating the variables self and size.
+    Raising errors if conditions are not met.
+    and print square using '#'.
     """
+
     def __init__(self, size=0, position=(0, 0)):
         self.__size = size
         self.__position = position
