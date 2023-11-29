@@ -1,0 +1,62 @@
+# The add_integer doctest file
+
+"""
+Testing the my_module module
+
+This test file contains doctests for
+the add_integer function in the 0-add_integer module.
+"""
+
+# Test the add_integer function
+
+# Import Function From Module
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Test Cases
+
+# Add two positive Integers
+>>> add_integer(1, 2)
+3
+
+# Add two positive Floats
+>>> add_integer(1.0, 2.0)
+3
+
+# Add an Integer and a Float
+>>> add_integer(2.0, 7)
+9
+
+# Add Negative Integers
+>>> add_integer(-5, -6)
+-11
+
+# Add one Negative and one Positive Integer
+>>> add_integer(-8, 9)
+1
+
+# Add with 0
+>>> add_integer(7, 0)
+7
+
+# Add one positive and one negative float
+>>> add_integer(-9.0, 19.0)
+10
+
+# Using The Default 'b=98' Parameter
+# Passing One Parameter To add_integer Function
+>>> add_integer(2)
+100
+>>> add_integer(12)
+110
+
+# Handling Errors
+
+>>> add_integer('a', 5)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+>>> add_integer(7, "7")
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
