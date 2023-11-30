@@ -24,8 +24,8 @@ My name is Jane Doe
 My name is Jane Jay Doe
 
 # First name only
->>> say_my_name("Jane")
-My name is Jane
+>>> say_my_name("Bob")
+My name is Bob
 
 # Non string First or Last names
 >>> say_my_name(123, "Doe")
