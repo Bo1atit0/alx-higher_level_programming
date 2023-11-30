@@ -90,5 +90,7 @@ class Rectangle:
         called when an object is about to be deleted
         prints message
         """
-        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+        # decrement rectangle population
+        Rectangle.number_of_instances -= 1
