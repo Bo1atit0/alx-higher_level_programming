@@ -38,6 +38,9 @@ class MyTests(unittest.TestCase):
     def test_string_elements(self):
         self.assertEqual(max_integer(['1', '2', '3', '4']), '4')
 
+    def test_max_in_middle(self):
+        self.assertEqual(max_integer([1, 2, 5, 3, 4]), 5)
+
     def test_mixed_types(self):
         with self.assertRaises(TypeError):
             max_integer(['a', 1, 2, 3])
