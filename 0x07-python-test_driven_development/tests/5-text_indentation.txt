@@ -49,6 +49,25 @@ Colon:
 <BLANKLINE>
 <BLANKLINE>
 
+# Strings without any characters
+>>> text_indentation("Holberton School")
+Holberton School
+
+# String without spacing
+>>> text_indentation("Holberton.School")
+Holberton.
+<BLANKLINE>
+School
+
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
+<BLANKLINE>
+School?
+<BLANKLINE>
+How are you:
+<BLANKLINE>
+John
+
 # Passing a variable as argument
 >>> text = "This? is a string variable."
 >>> text_indentation(text)
