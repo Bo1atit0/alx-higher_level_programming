@@ -30,4 +30,4 @@ def text_indentation(text):
         elif not start_of_line or char != " ":
             result_str += char + ''
             start_of_line = False
-    print(result_str)
+    print(result_str, end='')
