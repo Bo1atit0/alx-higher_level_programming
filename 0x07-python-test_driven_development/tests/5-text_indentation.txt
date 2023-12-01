@@ -21,7 +21,6 @@ My name is Bola.
 <BLANKLINE>
 And this is my project.
 <BLANKLINE>
-<BLANKLINE>
 
 # String with '?'
 >>> text_indentation("Are you sure? Yes I am.")
@@ -29,14 +28,12 @@ Are you sure?
 <BLANKLINE>
 Yes I am.
 <BLANKLINE>
-<BLANKLINE>
 
 # String with ':'
 >>> text_indentation("Languages: Python, C.")
 Languages:
 <BLANKLINE>
 Python, C.
-<BLANKLINE>
 <BLANKLINE>
 
 # Strings with '. ? :'
@@ -46,7 +43,6 @@ Fullstop.
 Question mark?
 <BLANKLINE>
 Colon:
-<BLANKLINE>
 <BLANKLINE>
 
 # Strings without any characters
@@ -75,13 +71,11 @@ This?
 <BLANKLINE>
 is a string variable.
 <BLANKLINE>
-<BLANKLINE>
 
 # String with spaces at the beginning and end
 >>> text = "    string with spaces.    "
 >>> text_indentation(text)
 string with spaces.
-<BLANKLINE>
 <BLANKLINE>
 
 # Invalid Inputs (Not strings)
