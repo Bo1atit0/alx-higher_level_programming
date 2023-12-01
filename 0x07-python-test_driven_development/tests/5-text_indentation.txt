@@ -1,0 +1,73 @@
+# text_indentation doctest file
+
+"""
+Testing the 5-text_indentation module
+
+This text file contains doctests for the text_indentation
+function in the 5-text_indentation module
+"""
+
+Function: ``text_indentation(text)``.
+
+# Import function
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test Cases
+
+# Valid Inputs
+# String with '.'
+>>> text_indentation("My name is Bola. And this is my project.")
+My name is Bola.
+<BLANKLINE>
+And this is my project.
+<BLANKLINE>
+<BLANKLINE>
+
+# String with '?'
+>>> text_indentation("Are you sure? Yes I am.")
+Are you sure?
+<BLANKLINE>
+Yes I am.
+<BLANKLINE>
+<BLANKLINE>
+
+# String with ':'
+>>> text_indentation("Languages: Python, C.")
+Languages:
+<BLANKLINE>
+Python, C.
+<BLANKLINE>
+<BLANKLINE>
+
+# Strings with '. ? :'
+>>> text_indentation("Fullstop. Question mark? Colon:")
+Fullstop.
+<BLANKLINE>
+Question mark?
+<BLANKLINE>
+Colon:
+<BLANKLINE>
+<BLANKLINE>
+
+# Passing a variable as argument
+>>> text = "This? is a string variable."
+>>> text_indentation(text)
+This?
+<BLANKLINE>
+is a string variable.
+<BLANKLINE>
+<BLANKLINE>
+
+# String with spaces at the beginning and end
+>>> text = "    string with spaces.    "
+>>> text_indentation(text)
+string with spaces.
+<BLANKLINE>
+<BLANKLINE>
+
+# Invalid Inputs (Not strings)
+
+>>> text_indentation(123)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
