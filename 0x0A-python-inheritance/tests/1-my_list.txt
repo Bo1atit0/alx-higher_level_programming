@@ -81,6 +81,17 @@ the print_sorted function in 1-my_list.
 >>> neg_list.print_sorted()  
 [-9, -6, -5, -5, -4, -3, -2, -1, -1]
 
+# List with floats
+>>> float_list = Mylist()
+>>> float_list.append(3.1)
+>>> float_list.append(2.2)
+>>> float_list.append(1.3)
+>>> float_list
+[1.1, 2.2, 3.3]
+
+# print sorted list
+>>> float_list.print_sorted()
+[1.3, 2.2, 3.1]
 
 # Lists with mixed types
 >>> mixed_list = MyList()
@@ -97,3 +108,14 @@ the print_sorted function in 1-my_list.
 Traceback (most recent call last):
     ...
 TypeError: '<' not supported between instances of 'str' and 'int'
+
+
+
+
+
+
+
+
+
+
+run with `python3 -m doctest -v ./tests/1-my_list.txt'
