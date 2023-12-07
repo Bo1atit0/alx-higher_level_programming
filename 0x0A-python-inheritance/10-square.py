@@ -14,6 +14,9 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
+    """
+    a square class
+    """
     def __init__(self, size):
         """
         initializes the square class
