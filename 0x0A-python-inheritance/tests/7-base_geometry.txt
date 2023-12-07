@@ -79,4 +79,33 @@ Traceback (most recent call last):
 TypeError: sides must be an integer
 
 
+
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+  ...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+  ...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'name' and 'value'
+
+
+
+
 run with `python3 -m doctest -v ./tests/7-base_geometry.txt'
