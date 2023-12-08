@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 class MyInt(int):
     """
     a class inheriting from the built-in int class
