@@ -1,0 +1,128 @@
+# doctest file for 1-my_list
+
+"""
+Testing the my_list module
+
+This test file contains doctests for
+the print_sorted function in 1-my_list.
+"""
+
+# import function
+>>> MyList = __import__('1-my_list').MyList
+
+#Test_Cases
+
+# original lsit
+>>> original_list = MyList()
+>>> original_list.append(7)
+>>> original_list.append(6)
+>>> original_list.append(1)
+>>> original_list.append(3)
+>>> original_list
+[7, 6, 1, 3]
+
+#print sorted list
+original_list.print_sorted()
+[1, 3, 6, 7]
+
+#print list
+>>> original_list
+[7, 6, 1, 3]
+
+
+# Unsorted list of integers
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> my_list
+[1, 4, 2, 3, 5]
+
+# Print sorted elements
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Empty List
+>>> empty_list = MyList()
+>>> empty_list
+[]
+
+# print sorted elements(empty list is also a sorted element)
+>>> empty_list.print_sorted()
+[]
+
+
+# Lists with Duplicate elements
+>>> dup_list = MyList()
+>>> dup_list.append(2)
+>>> dup_list.append(4)
+>>> dup_list.append(2)
+>>> dup_list.append(7)
+>>> dup_list.append(4)
+>>> dup_list.append(9)
+>>> dup_list.append(7)
+>>> dup_list
+[2, 4, 2, 7, 4, 9, 7]
+
+# print sorted list
+>>> dup_list.print_sorted()  
+[2, 2, 4, 4, 7, 7, 9]
+
+# List with negative numbers
+>>> neg_list = MyList()
+>>> neg_list.append(-3)
+>>> neg_list.append(-1)
+>>> neg_list.append(-4)
+>>> neg_list.append(-1)
+>>> neg_list.append(-5)
+>>> neg_list.append(-9)
+>>> neg_list.append(-2)
+>>> neg_list.append(-6)
+>>> neg_list.append(-5)
+>>> neg_list
+[-3, -1, -4, -1, -5, -9, -2, -6, -5]
+
+# print sorted list
+>>> neg_list.print_sorted()  
+[-9, -6, -5, -5, -4, -3, -2, -1, -1]
+
+# List with floats
+>>> float_list = MyList()
+>>> float_list.append(3.1)
+>>> float_list.append(2.2)
+>>> float_list.append(1.3)
+>>> float_list
+[3.1, 2.2, 1.3]
+
+# print sorted list
+>>> float_list.print_sorted()
+[1.3, 2.2, 3.1]
+
+# Lists with mixed types
+>>> mixed_list = MyList()
+>>> mixed_list.append(3)
+>>> mixed_list.append('apple')
+>>> mixed_list.append(1.5)
+>>> mixed_list.append('orange')
+>>> mixed_list.append(2)
+>>> mixed_list
+[3, 'apple', 1.5, 'orange', 2]
+
+# print sorted list
+>>> mixed_list.print_sorted()
+Traceback (most recent call last):
+    ...
+TypeError: '<' not supported between instances of 'str' and 'int'
+
+
+
+
+
+
+
+
+
+
+run with `python3 -m doctest -v ./tests/1-my_list.txt'

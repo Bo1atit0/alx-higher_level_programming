@@ -1,0 +1,122 @@
+# matrix_divided doctest
+
+"""
+Testing the add_integer module
+
+This test file contains doctests for
+the add_integer function in the 0-add_integer module.
+"""
+# import function
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+# Test with matrix and div as integers
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+# Test with matrix and div as floats
+>>> matrix = [[2.0, 4.0, 6.0], [3.5, 5.8, 4.5], [4.9, 6.7, 0.4]]
+>>> div = 2.5
+>>> matrix_divided(matrix, div)
+[[0.8, 1.6, 2.4], [1.4, 2.32, 1.8], [1.96, 2.68, 0.16]]
+
+# Test with negative numbers in the matrix
+>>> matrix = [[-1, -2, -3], [-4, -5, -6], [-7, -8, -9]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+[[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0], [-3.5, -4.0, -4.5]]
+
+# Test with a mix of positive and negative numbers in the matrix
+>>> matrix = [[-1, 2, -3], [4, -5, 6], [-7, 8, -9]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+[[-0.5, 1.0, -1.5], [2.0, -2.5, 3.0], [-3.5, 4.0, -4.5]]
+
+# Test with negative div
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = -2
+>>> matrix_divided(matrix, div)
+[[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0], [-3.5, -4.0, -4.5]]
+
+# Test with a mix of positive and negative numbers in the matrix and a negative divisor
+>>> div = -2
+>>> matrix = [[-1, 2, -3], [4, -5, 6], [-7, 8, -9]]
+>>> matrix_divided(matrix, div)
+[[0.5, -1.0, 1.5], [-2.0, 2.5, -3.0], [3.5, -4.0, 4.5]]
+
+
+# Empty Matrix
+>>> matrix = []
+>>> div = 1
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test with div == 0
+>>> matrix = [[1, 2, 3], [6, 5, 4], [9, 10, 5]]
+>>> div = 0
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+  ...
+ZeroDivisionError: division by zero
+
+# Test with non list matrix
+>>> matrix = 123
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = "not a matrix"
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Row with different sizes
+>>> matrix = [[1, 2], [2, 4, 6], [4, 8, 7]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+  ...
+TypeError: Each row of the matrix must have the same size
+
+# Test for Divisor is boolean
+>>> matrix = [[1, 2, 3], [4, 5, 6], [6, 8, 9]]
+>>> div = True
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+  ...
+TypeError: div must be a number
+
+# Matrix with string instead of int
+>>> matrix = [[1, 2, "a"], [4, 5, 6]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Incomplete arguments
+>>> matrix = [[1, 2, 4], [5, 2, 1]]
+>>> matrix_divided(matrix)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+# Too many arguments
+>>> matrix = [[1, 2, 4], [4, 7, 6]]
+>>> matrix_divided(matrix, 3, 5)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+# matrix divided by float(inf)(positive infinity)
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> div = float('inf')
+>>> matrix_divided(matrix, div)
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]

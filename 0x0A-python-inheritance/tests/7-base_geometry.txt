@@ -1,0 +1,106 @@
+# doctest file for 7-base_geometry.py
+
+"""
+Testing the 7-base_deometry module
+
+This test file contains doctests for
+the integer_validator function in 7-base_geometry.
+"""
+
+# import function
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+# Test Cases
+
+#Valid Cases
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>> bg.integer_validator("age", (4))
+
+
+# Use area() method
+>>> bg.area()
+Traceback (most recent call last):
+  ...
+Exception: area() is not implemented
+
+# Invalid Cases
+>>> bg.integer_validator("width", 0)
+Traceback (most recent call last):
+  ...
+ValueError: width must be greater than 0
+
+# INvalid Case
+>>> bg.integer_validator("name", "James")
+Traceback (most recent call last):
+  ...
+TypeError: name must be an integer
+
+# Invalid case, Value = negative number
+>>> bg.integer_validator("age", -4)
+Traceback (most recent call last):
+  ...
+ValueError: age must be greater than 0
+
+# Invalid case: Value = float
+>>> bg.integer_validator("depth", 13.5)
+Traceback (most recent call last):
+  ...
+TypeError: depth must be an integer
+
+
+# Invalid case: Value = List
+>>> bg.integer_validator("age", [5])
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+# Invalid case: Value = boolean value
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+
+>>> bg.integer_validator("age", [2, 4])
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("length", "Non-integer")
+Traceback (most recent call last):
+  ...
+TypeError: length must be an integer
+
+>>> bg.integer_validator("sides", "Non-integer")
+Traceback (most recent call last):
+  ...
+TypeError: sides must be an integer
+
+
+
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+  ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+
+
+run with `python3 -m doctest -v ./tests/7-base_geometry.txt'
