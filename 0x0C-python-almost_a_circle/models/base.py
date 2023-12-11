@@ -10,6 +10,12 @@ else, increment __nb_objects and assign value to id
 
 
 class Base:
+    """
+    A Base class
+    the base of all other classes
+    manages id attribute for all clases
+    """
+
     __nb_objects = 0
 
     def __init__(self, id=None):

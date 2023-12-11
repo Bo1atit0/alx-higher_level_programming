@@ -1,5 +1,7 @@
 """
 test cases for the rectangle module
+ run with python3 -m unittest discover tests
+run with python3 -m unittest tests/test_models/test_rectangle.py
 """
 
 # import

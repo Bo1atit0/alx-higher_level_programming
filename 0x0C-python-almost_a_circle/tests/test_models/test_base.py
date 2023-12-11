@@ -1,5 +1,7 @@
 """
 test case for Base module
+run with python3 -m unittest discover tests
+run with python3 -m unittest tests/test_models/test_base.py
 """
 import unittest
 # import module
