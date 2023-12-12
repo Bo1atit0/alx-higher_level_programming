@@ -112,6 +112,7 @@ class TestRectangle(unittest.TestCase):
     def test_update(self):
         rec = Rectangle(3, 5, 0, 0, 3)
         rec.update(2, 3, 4, 5, 6)
+        self.assertEqual(str(rec), '[Rectangle] (2) 5/6 - 3/4')
         self.assertEqual(rec.id, 2)
         self.assertEqual(rec.width, 3)
         self.assertEqual(rec.height, 4)
@@ -121,6 +122,16 @@ class TestRectangle(unittest.TestCase):
     # test with invalid arguments
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             rec = Rectangle(3, 5, "string", 0, 3)
+
+         # test with **kwargs
+        rec = Rectangle(3, 5, 0, 0, 3)
+        rec.update(id=1, width=2, height=3, x=4, y=5)
+        self.assertEqual(rec.id, 1)
+        self.assertEqual(rec.width, 2)
+        self.assertEqual(rec.height, 3)
+        self.assertEqual(rec.x, 4)
+        self.assertEqual(rec.y, 5)
+
 
 if __name__ == "__main__":
     unittest.main()
