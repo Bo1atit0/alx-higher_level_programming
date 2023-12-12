@@ -56,3 +56,13 @@ class Test_Square(unittest.TestCase):
         self.assertEqual(sq.size, 2)
         self.assertEqual(sq.x, 4)
         self.assertEqual(sq.y, 5)
+
+    def test_to_dict(self):
+        sq = Square(10, 2, 9, 5)
+        # r1.update(10, 2, 1, 9, 5)
+        sq_dictionary = sq.to_dictionary()
+        output = {'id': 5, 'size': 10, 'x': 2, 'y': 9}
+        self.assertEqual(output, sq_dictionary)
+
+        # test type
+        self.assertIsInstance(sq_dictionary, dict)
