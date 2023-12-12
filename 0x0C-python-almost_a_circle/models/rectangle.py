@@ -25,7 +25,7 @@ class Rectangle(Base):
     Class attributes:
              width, height, x, y
     Public methods:
-            area(), display()
+            area(), display(), update()
     """
     # Task 3: Validate all setter methods and Instantiation
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -132,6 +132,10 @@ class Rectangle(Base):
             self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args):
+        """
+        Update the class Rectangle by using *args
+        to assigns  arguments to each attribute
+        """
         if len(args) >= 1:
             self.id = args[0]
         if len(args) >= 2:
