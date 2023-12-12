@@ -6,6 +6,8 @@ run with python3 -m unittest tests/test_models/test_rectangle.py
 
 # import
 import unittest
+import sys
+from io import StringIO
 from models import rectangle
 Rectangle = rectangle.Rectangle
 
@@ -75,3 +77,47 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(5, 8)
         self.assertEqual(rect.area(), 40)
         self.assertEqual(Rectangle(1, 2, 0, 0, 5).area(), 2)
+
+    # Test display() Method
+    def test_display(self):
+        r = Rectangle(2, 2)
+        expected_output = "##\n##\n"
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+        r = Rectangle(2, 3, 2, 4)
+        expected_output = "\n\n\n\n  ##\n  ##\n  ##\n"
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+    # Test __str__() Method
+    def test_str(self):
+        rec = Rectangle(3, 5, 0, 0, 3)
+        expected_output = "[Rectangle] (3) 0/0 - 3/5"
+        self.assertEqual(expected_output, str(rec))
+
+        rec2 = Rectangle(2, 4, 6, 8, 10)
+        expected_output = "[Rectangle] (10) 6/8 - 2/4"
+        self.assertEqual(expected_output, str(rec2))
+
+    # Test update() Method
+    def test_update(self):
+        rec = Rectangle(3, 5, 0, 0, 3)
+        rec.update(2, 3, 4, 5, 6)
+        self.assertEqual(rec.id, 2)
+        self.assertEqual(rec.width, 3)
+        self.assertEqual(rec.height, 4)
+        self.assertEqual(rec.x, 5)
+        self.assertEqual(rec.y, 6)
+
+    # test with invalid arguments
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            rec = Rectangle(3, 5, "string", 0, 3)
