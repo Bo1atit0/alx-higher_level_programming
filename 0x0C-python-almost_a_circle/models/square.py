@@ -10,6 +10,12 @@ Inherits from Rectangle class
 
 class Square(Rectangle):
     """
+    class Square that inherits from Rectangle class
+    Class constructor:
+    def __init__(self, size, x=0, y=0, id=None):
+    Call the super class with id, x, y, width and height
+    this super call will use the logic of the __init__ of the Rectangle class.
+    The width and height must be assigned to the value of size
     """
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
