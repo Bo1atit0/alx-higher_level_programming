@@ -18,6 +18,10 @@ class Square(Rectangle):
     The width and height must be assigned to the value of size
     """
     def __init__(self, size, x=0, y=0, id=None):
+        """
+        initialize a square instance using
+        logic from rectangle class
+        """
         super().__init__(size, size, x, y, id)
         self.size = size
 
@@ -37,5 +41,8 @@ class Square(Rectangle):
         self.height = new_size
 
     def __str__(self):
+        """
+        print string representation of square instance
+        """
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.x, self.y, self.width)
