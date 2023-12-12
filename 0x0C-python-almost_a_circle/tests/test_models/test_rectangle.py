@@ -121,3 +121,7 @@ class TestRectangle(unittest.TestCase):
     # test with invalid arguments
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             rec = Rectangle(3, 5, "string", 0, 3)
+
+if __name__ == "__main__":
+    unittest.main()
+# run with "python3 -m unittest discover test"
