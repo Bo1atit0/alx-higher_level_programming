@@ -48,6 +48,10 @@ class Square(Rectangle):
             self.id, self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
+        """
+        updates the attributes of the square class
+        using *args and **kwargs
+        """
         if args:
             if len(args) >= 1:
                 self.id = args[0]
