@@ -32,6 +32,12 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.y, 0)
         self.assertTrue(r2.id is not None)
 
+        with self.assertRaises(ValueError):
+            r = Rectangle(0, 2)
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(1, 0)
+
     def test_class(self):
         r3 = Rectangle(2, 8)
         self.assertEqual(type(r3), Rectangle)
