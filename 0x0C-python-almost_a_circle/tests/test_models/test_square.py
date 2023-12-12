@@ -34,3 +34,25 @@ class Test_Square(unittest.TestCase):
     def test_too_many_args(self):
         with self.assertRaises(TypeError):
             sq = Square(1, 2, 3, 4, 5, 5, 7, 8, 9)
+
+    # Test update() Method
+    def test_sq_update(self):
+        sq = Square(3, 5, 0, 0)
+        sq.update(2, 3, 4, 5)
+        self.assertEqual(str(sq), '[Square] (2) 4/5 - 3')
+        self.assertEqual(sq.id, 2)
+        self.assertEqual(sq.size, 3)
+        self.assertEqual(sq.x, 4)
+        self.assertEqual(sq.y, 5)
+
+    # test with invalid arguments
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            sq = Square(3, 5, "one", 1)
+
+        # test with **kwargs
+        sq = Square(3, 5, 0, 0)
+        sq.update(id=1, size=2, x=4, y=5)
+        self.assertEqual(sq.id, 1)
+        self.assertEqual(sq.size, 2)
+        self.assertEqual(sq.x, 4)
+        self.assertEqual(sq.y, 5)
