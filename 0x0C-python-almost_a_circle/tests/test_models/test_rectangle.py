@@ -135,4 +135,4 @@ class TestRectangle(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-# run with "python3 -m unittest discover test"
+# run with "python3 -m unittest discover tests"
