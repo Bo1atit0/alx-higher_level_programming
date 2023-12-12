@@ -96,7 +96,7 @@ class Rectangle(Base):
     # getter and setter for Y
     @property
     def y(self):
-        """"""
+
         return self.__y
 
     @y.setter
@@ -127,10 +127,12 @@ class Rectangle(Base):
         for _ in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
+    # Task 6 and 7
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
+    # Task 8(*args) and 9(**kwargs)
     def update(self, *args, **kwargs):
         """
         Update the class Rectangle by using *args
