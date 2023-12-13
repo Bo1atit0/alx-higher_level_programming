@@ -8,6 +8,7 @@ if id is not None, id = public instance attribute id
 else, increment __nb_objects and assign value to id
 """
 import json
+import os
 
 
 class Base:
@@ -64,8 +65,9 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """
-        turns the list of the JSON string
-        representation json_string
+        converts the JSON string
+        representation of 'json_string' to a list
+        'json_string' - a string representing a list of dictionaries
         """
         if json_string is None or len(json_string) == 0:
             return []
@@ -85,3 +87,18 @@ class Base:
         dummy_instance.update(**dictionary)
 
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        filename = '{}.json'.format(cls.__name__)
+        instance_list = []
+        # if file exits, open and read from it
+        if os.path.exists(filename):
+            with open(filename, "r") as f:
+                dictionary = f.read()
+                kwargs = cls.from_json_string(dictionary)
+                for value in kwargs:
+                    instance_list.append(cls.create(**value))
+            return instance_list
+        else:
+            return instance_list
