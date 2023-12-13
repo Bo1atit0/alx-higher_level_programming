@@ -60,6 +60,7 @@ class Base:
             with open(filename, "w") as f:
                 f.write(cls.to_json_string(json_list))
 
+    # Task 17
     @staticmethod
     def from_json_string(json_string):
         """
@@ -70,3 +71,14 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    # Task 18
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        returns an instance with all attributes already set:
+        """
+        dummy_instance = cls(2, 2)
+        dummy_instance.update(**dictionary)
+
+        return dummy_instance
