@@ -43,12 +43,14 @@ class Base:
         """
         writes the JSON string representation of list_objs to a file
         """
+        filename = "{}.json".format(cls.__name__)
         json_list = []
         if list_objs is None or len(list_objs) == 0:
-            return json_list
+            with open(filename, "w") as f:
+                f.write(cls.to_json_string(json_list))
 
         else:
-            filename = "{}.json".format(cls.__name__)
+
             # iterate through objects
             for obj in list_objs:
                 # convert objects to dictionaries
@@ -57,4 +59,3 @@ class Base:
             # write objects into json file
             with open(filename, "w") as f:
                 f.write(cls.to_json_string(json_list))
-            # return json_list
