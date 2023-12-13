@@ -36,3 +36,24 @@ print(a)
 print()
 a.update(2)
 print(a)
+
+
+
+def test_save_to_file(self):
+        #test with valid
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        output = [{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7},
+                  {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]
+        with open("rectangle.json", 'r') as f:
+            self.assertEqual(output, f.read())
+
+def test_save_to_file_empty(self):
+        list_obj = []
+        Rectangle.save_to_file(list_obj)
+
+        with open("rectangle.json", "r") as f:
+            result = f.read()
+            output = '[]'
+        self.assertEqual(output, result)

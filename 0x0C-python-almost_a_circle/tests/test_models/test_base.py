@@ -5,8 +5,10 @@ run with python3 -m unittest tests/test_models/test_base.py
 """
 import unittest
 # import module
-from models import base
+from models import base, square, rectangle
 Base = base.Base
+Rectangle = rectangle.Rectangle
+Square = square.Square
 
 
 class TestBase(unittest.TestCase):
@@ -42,6 +44,25 @@ class TestBase(unittest.TestCase):
     def test_multiple_args(self):
         with self.assertRaises(TypeError):
             base8 = Base(2, 5)
+
+    def test_to_json_string(self):
+        # empty list
+        dict_list = []
+        expected_output = '[]'
+        result = Base.to_json_string(dict_list)
+        self.assertEqual(expected_output, result)
+
+        # valid list
+        r1 = [{"id": 1, "name": "May"}, {"id": 2, "name": "Mark"}]
+        output = '[{"id": 1, "name": "May"}, {"id": 2, "name": "Mark"}]'
+        json_dictionary = Base.to_json_string(r1)
+        self.assertEqual(json_dictionary, output)
+
+        # None
+        dict_list = None
+        expected_output = '[]'
+        result = Base.to_json_string(dict_list)
+        self.assertEqual(expected_output, result)
 
 
 if __name__ == "__main__":
