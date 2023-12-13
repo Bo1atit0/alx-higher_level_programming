@@ -59,3 +59,14 @@ class Base:
             # write objects into json file
             with open(filename, "w") as f:
                 f.write(cls.to_json_string(json_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        turns the list of the JSON string
+        representation json_string
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
