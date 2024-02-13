@@ -9,7 +9,7 @@ function factorial (a) {
 }
 
 if (process.argv.length !== 3) {
-  console.log('NaN');
+  console.log(1);
 } else {
   const arg = parseInt(process.argv[2]);
   const result = factorial(arg);
