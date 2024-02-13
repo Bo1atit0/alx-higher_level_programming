@@ -40,20 +40,18 @@ print(a)
 
 
 def test_save_to_file(self):
-        #test with valid
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
-        Rectangle.save_to_file([r1, r2])
-        output = [{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7},
-                  {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]
-        with open("rectangle.json", 'r') as f:
-            self.assertEqual(output, f.read())
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(json.dumps([r1.to_dictionary(),
+                        r2.to_dictionary()]), f.read())
 
-def test_save_to_file_empty(self):
+    def test_save_to_file_with_empty_list(self):
         list_obj = []
+        filename = 'Rectangle.json'
         Rectangle.save_to_file(list_obj)
 
-        with open("rectangle.json", "r") as f:
-            result = f.read()
-            output = '[]'
-        self.assertEqual(output, result)
+        with open(filename, 'r') as file:
+            expected_output = '[]'
+            result = file.read()
+            self.assertEqual(expected_output, result)
