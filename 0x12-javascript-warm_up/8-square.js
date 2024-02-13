@@ -9,7 +9,7 @@ if (isNaN(size)) {
   for (i = 0; i < size; i++) {
     let square = '';
     for (j = 0; j < size; j++) {
-      square += 'x';
+      square += 'X';
     }
     console.log(square);
   }
