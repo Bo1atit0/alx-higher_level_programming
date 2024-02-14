@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-if (process.argv.length === 2 || parseInt(process.argv.length) === 3) {
+if (process.argv.length === 2 || process.argv.length === 3) {
   console.log(0);
 } else {
   let i;
@@ -8,11 +8,12 @@ if (process.argv.length === 2 || parseInt(process.argv.length) === 3) {
   let secondLargest = parseInt(process.argv[process.argv.length - 1]);
 
   for (i = 1; i < process.argv.length; i++) {
-    if (parseInt(process.argv[i]) > largest) {
+    const num = parseInt(process.argv[i]);
+    if (num > largest) {
       secondLargest = largest;
-      largest = parseInt(process.argv[i]);
-    } else if (parseInt(process.argv[i]) > secondLargest && parseInt(process.argv[i] !== largest)) {
-      secondLargest = parseInt(process.argv[i]);
+      largest = num;
+    } else if (num > secondLargest && num !== largest) {
+      secondLargest = num;
     }
   }
   console.log(secondLargest);
