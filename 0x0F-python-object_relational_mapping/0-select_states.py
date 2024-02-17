@@ -20,6 +20,7 @@ if __name__ == '__main__':
     password = sys.argv[2]
     database = sys.argv[3]
 
+    #Establish a connection to mysql server
     con = MySQLdb.connect(
         user=username,
         passwd=password,
@@ -27,15 +28,15 @@ if __name__ == '__main__':
         host="localhost",
         port=3306
         )
-
+    #create a cursor object to execute queries
     cur = con.cursor()
-
+    #Execute a query using the execute() function
     cur.execute("SELECT DISTINCT id, name FROM states ORDER BY id ASC")
-
+    #Fetch all results
     results = cur.fetchall()
 
     for state in results:
         print(state)
-
+    #close cursor and connection
     cur.close()
     con.close()
