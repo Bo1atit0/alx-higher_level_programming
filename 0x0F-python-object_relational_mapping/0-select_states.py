@@ -31,7 +31,7 @@ if __name__ == '__main__':
     #create a cursor object to execute queries
     cur = con.cursor()
     #Execute a query using the execute() function
-    cur.execute("SELECT DISTINCT id, name FROM states ORDER BY id ASC")
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
     #Fetch all results
     results = cur.fetchall()
 
