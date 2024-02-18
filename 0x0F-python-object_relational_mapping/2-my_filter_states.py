@@ -36,7 +36,7 @@ if __name__ == "__main__":
 # Establish a connection to mysql server
     cur = conn.cursor()
 # Execute a query using the execute() function
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id ASC".format(
+    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC".format(
         argv[4])
     cur.execute(query)
 # Fetch all results
