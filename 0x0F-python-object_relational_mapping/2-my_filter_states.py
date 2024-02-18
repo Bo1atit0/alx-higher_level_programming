@@ -31,9 +31,9 @@ if __name__ == "__main__":
 # Establish a connection to mysql server
     cur = conn.cursor()
 # Execute a query using the execute() function
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    state_name = (argv[4], )
-    cur.execute(query, state_name)
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(
+        argv[4])
+    cur.execute(query)
 # Fetch all results
     states = cur.fetchall()
 
