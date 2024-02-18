@@ -38,7 +38,8 @@ if __name__ == "__main__":
     states = cur.fetchall()
 
     for state in states:
-        print(state)
+        if state[1] == 'Arizona':
+            print(state)
 
     cur.close()
     conn.close()
