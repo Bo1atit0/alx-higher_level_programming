@@ -13,10 +13,10 @@ Results must be displayed as they are in the example below
 Your code should not be executed when imported
 """
 
-if __name__ == '__main__':
-    import MySQLdb
-    import sys
+import MySQLdb
+import sys
 
+if __name__ == '__main__':
     conn = MySQLdb.connect(
         user=sys.argv[1],
         passwd=sys.argv[2],
