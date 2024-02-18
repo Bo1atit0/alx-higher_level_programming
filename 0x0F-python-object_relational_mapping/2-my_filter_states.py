@@ -20,6 +20,11 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
+    if len(argv) != 5:
+        print("Usage: {} <Username> <Password> <Database> <State_name>"
+              .format(argv[0]))
+        exit()
+
     conn = MySQLdb.connect(
         user=argv[1],
         passwd=argv[2],
