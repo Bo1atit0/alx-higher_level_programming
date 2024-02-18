@@ -14,14 +14,14 @@ Your code should not be executed when imported
 """
 
 import MySQLdb
-import sys
+from sys import argv
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     conn = MySQLdb.connect(
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        database=sys.argv[3],
-        host="localhost",
+        user=argv[1],
+        passwd=argv[2],
+        database=argv[3],
+        host='localhost',
         port=3306
     )
 
