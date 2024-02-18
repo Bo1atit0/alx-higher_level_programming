@@ -1,42 +1,36 @@
 #!/usr/bin/python3
 
 """
-Script that lists all states with a name starting with 'N'
-from the database hbtn_0e_0_usa.
-Parameters for script: mysql username, mysql password, database name.
-Must use the `MySQLdb` module.
-Script should connect to a MySQL server runnimg on `localhost` at port `3306`
-Results must be in ascending order by `states.id`.
-Code should not be executed when imported.
+Write a script that lists all states with a name starting
+with N (upper N) from the database hbtn_0e_0_usa:
+
+Your script should take 3 arguments:
+mysql username, mysql password and database name
+You must use the module MySQLdb (import MySQLdb)
+Your script should connect to a MySQL server running on localhost at port 3306
+Results must be sorted in ascending order by states.id
+Results must be displayed as they are in the example below
+Your code should not be executed when imported
 """
 
-from sys import argv
 import MySQLdb
+import sys
 
 if __name__ == "__main__":
-    # establishing a secure connection to the MySQL server
-    db = MySQLdb.connect(
+    conn = MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        database=sys.argv[3],
         host="localhost",
-        port=3306,
-        user=argv[1],
-        passwd=argv[2],
-        db=argv[3]
+        port=3306
     )
 
-    # creating a cursor object to execute SQL queries
-    cursor = db.cursor()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%'ORDER BY id ASC")
+    states = cur.fetchall()
 
-    # executing the cursor to retrieve states sorted by id
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-
-    # fetching all the results
-    states = cursor.fetchall()
-
-    # display/print them out
     for state in states:
-        if state[1][0] == 'N':
-            print(state)
+        print(state)
 
-    # closing the cursor and database connection
-    cursor.close()
-    db.close()
+    cur.close()
+    conn.close()
