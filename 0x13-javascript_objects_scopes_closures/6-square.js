@@ -8,7 +8,7 @@ class Square extends sQuare {
       super.print();
     } else {
       let i;
-      const row = 'C'.repeat(this.width);
+      const row = c.repeat(this.width);
 
       for (i = 0; i < this.width; i++) {
         console.log(row);
