@@ -37,11 +37,11 @@ if __name__ == '__main__':
         session = Session()
 
         # query all state objects that contain letter a
-        states = session.query(state).filter(state.name.like(
-            '%a%')).order_by(state.id)
+        f_states = session.query(state).filter(state.name.like(
+            '%a%')).order_by(state.id).all()
 
         # print results
-        for state in states:
+        for state in f_states:
             print("{:d}: {:s}".format(state.id, state.name))
 
         # close session
