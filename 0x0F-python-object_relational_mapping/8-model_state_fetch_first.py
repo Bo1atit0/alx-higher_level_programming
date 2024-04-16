@@ -11,7 +11,8 @@ You must import State and Base from model_state -
 - from model_state import Base, State
 Your script should connect to a MySQL server running on localhost at port 3306
 The state you display must be the first in states.id
-You are not allowed to fetch all states from the database before displaying the result
+You are not allowed to fetch all states
+from the database before displaying the result
 The results must be displayed as they are in the example below
 If the table states is empty, print Nothing followed by a new line
 Your code should not be executed when imported
@@ -39,7 +40,7 @@ if __name__ == '__main__':
     session = Session()
 
     # query first state object
-    State = session.query(State).order_by(State.id).first()
+    state = session.query(State).order_by(State.id).first()
 
     # print result
-    print ('{}: {}'.format(state.))
+    print('{}: {}'.format(state.id, state.name))
