@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     query = """SELECT cities.name
                 FROM states
-                JOIN cities ON states.id = cities.state_id
+                INNER JOIN cities ON states.id = cities.state_id
                 WHERE states.name = %s
                 ORDER BY cities.id ASC"""
 
@@ -39,8 +39,13 @@ if __name__ == '__main__':
 
     cities = cur.fetchall()
 
+    city_names = [city[0] for city in cities]
+    print(", ".join(city_names))
+
+    """
     for city in cities:
         print(city[1], end=", ")
+    """
 
     cur.close()
     con.close()
