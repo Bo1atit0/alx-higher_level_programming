@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     cur = con.cursor()
 
-    query = """SELECT cities.id, cities.name, states.name
+    query = """SELECT cities.name
                 FROM states
                 JOIN cities ON states.id = cities.state_id
                 WHERE states.name = %s
