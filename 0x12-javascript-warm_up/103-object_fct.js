@@ -4,23 +4,20 @@
 // that increments the integer value
 
 const myObject = {
-    type: 'object',
-    value: 12
-  };
-  console.log(myObject);
-  /*
-  YOUR CODE HERE
-  */
+  type: 'object',
+  value: 12
+};
+console.log(myObject);
+/*
+YOUR CODE HERE
+*/
+myObject.incr = function () {
+  this.value++;
+};
 
- const objectPrototype = {
-  function incr() {
-
-  }
- }
-
-  myObject.incr();
-  console.log(myObject);
-  myObject.incr();
-  console.log(myObject);
-  myObject.incr();
-  console.log(myObject);
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);
