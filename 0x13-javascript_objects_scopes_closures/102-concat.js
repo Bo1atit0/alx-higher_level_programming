@@ -8,6 +8,6 @@ const fileC = process.argv[4];
 
 const dataA = fs.readFileSync(fileA, 'utf8');
 const dataB = fs.readFileSync(fileB, 'utf8');
-const dataC = dataA + '\n' + dataB;
+const dataC = dataA + dataB;
 
 fs.writeFileSync(fileC, dataC, 'utf8');
