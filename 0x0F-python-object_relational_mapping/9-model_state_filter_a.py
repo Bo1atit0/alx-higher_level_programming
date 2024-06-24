@@ -25,24 +25,23 @@ if __name__ == '__main__':
         print("Usage: {} <username> <password> <database>".format(argv[0]))
         exit()
 
-        # create engine
-        engine = create_engine(
-            'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-                argv[1], argv[2], argv[3])
-        )
-        Base.metadata.create_all(engine)
+    # create engine
+    engine = create_engine('mysql+mysqldb://{}:{}:@localhost:3306/{}'.format(
+        argv[1], argv[2], argv[3]
+    ))
 
-        # create session instance
-        Session = sessionmaker(bimd=engine)
-        session = Session()
+    Base.metadata.create_all(engine)
+    # create session instance
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-        # query all state objects that contain letter a
-        f_states = session.query(State).filter(State.name.like(
-            '%a%')).order_by(State.id).all()
+    # query all state objects that contain letter a
+    a_states = session.query(State).filter(State.name.like(
+        '%a%')).order_by(State.id).all()
 
-        # print results
-        for state in f_states:
-            print("{:d}: {:s}".format(state.id, state.name))
+    # print results
+    for state in a_states:
+        print("{:d}: {:s}".format(state.id, state.name))
 
-        # close session
-        session.close()
+    # close session
+    session.close()
