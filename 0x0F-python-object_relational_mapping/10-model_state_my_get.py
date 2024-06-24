@@ -24,7 +24,7 @@ if __name__ == '__main__':
     from sys import argv
 
     if len(argv) != 5:
-        print("Usage: {} <username> <password> <database>".format(argv[0]))
+        print("Usage: {} <username> <password> <database> <state name>".format(argv[0]))
         exit()
 
         # create engine
