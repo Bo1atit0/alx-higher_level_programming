@@ -24,21 +24,22 @@ if __name__ == '__main__':
     from sys import argv
 
     if len(argv) != 5:
-        print("Usage: {} <username> <password> <database> <state name>".format(argv[0]))
+        print("Usage:{} <username> <password> <database> <state name>"
+              .format(argv[0]))
         exit()
 
-        # create engine
-        engine = create_engine(
-            'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-                argv[1], argv[2], argv[3])
-        )
-        Base.metadata.create_all(engine)
+    # create engine
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+            argv[1], argv[2], argv[3])
+            )
+    Base.metadata.create_all(engine)
 
-        # create session instance
-        Session = sessionmaker(bimd=engine)
-        session = Session()
+    # create session instance
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-        # Querying the State Objects with the specified name searched for
+    # Querying the State Objects with the specified name searched for
     state_name = argv[4]
     query = session.query(State).filter(
         State.name == state_name).first()
