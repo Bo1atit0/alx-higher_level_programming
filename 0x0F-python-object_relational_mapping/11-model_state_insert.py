@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/user/bin/python3
 
 """
 Write a script that adds the State object
