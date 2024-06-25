@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 
 """
 Write a script that adds the State object
@@ -15,6 +15,7 @@ Your code should not be executed when imported
 
 """
 
+# make sure file cannot be imported
 if __name__ == '__main__':
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
